@@ -8,18 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author manueltovaizquierdo
- */
-
 @Entity
 @Table
 @XmlRootElement
 public class Customer implements Serializable {   
-    //===========================================
-    //=         Attributes
-    //===========================================
 
     @Id //set primary key value 
 //    @GeneratedValue(strategy = GenerationType.TABLE)
@@ -27,10 +19,6 @@ public class Customer implements Serializable {
     private String name;
     private String address;
     private String email;
-
-    //===========================================
-    //=         Constructors
-    //===========================================
 
     public Customer() {
     }
@@ -42,10 +30,6 @@ public class Customer implements Serializable {
         this.email = email;
     }
 
-    //===========================================
-    //=         Getters & Setters
-    //===========================================
-    
     public int getId() {
         return id;
     }

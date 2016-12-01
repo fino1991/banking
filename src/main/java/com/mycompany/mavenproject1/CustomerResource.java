@@ -10,49 +10,35 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-/**
- *
- * @author manueltovaizquierdo
- */
-
 // book resource class handles the mapping of the book resource API 
 @Path("/customers")
 public class CustomerResource {
-    
-    //===========================================
-    //=         Attributes
-    //===========================================
-    
-    CustomerService customerService = new CustomerService();        
-    
-    //===========================================
-    //=         Constructor
-    //===========================================
-    
+
+    CustomerService customerService = new CustomerService();
+
     public CustomerResource() {
     }
-
 
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public List<Customer> listCustomers() {
         return customerService.retrieveCustomers();
     }
-    
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     @Path("/{id}")
     public Customer getCustomer(@PathParam("id") int id) {
         return customerService.retrieveCustomer(id);
     }
-    
+
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     @Produces({MediaType.APPLICATION_JSON})
     public Customer saveCustomer(Customer b) {
         return customerService.createCustomer(b);
     }
-    
+
     @DELETE
     @Path("/{id}")
     @Produces({MediaType.APPLICATION_JSON})
